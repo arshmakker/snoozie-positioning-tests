@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snoozie – Stop Doom-Scrolling at Night</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Stop doom-scrolling at night. Sleep better.</h1>
+    
+    <p class="subtext">
+      Snoozie gently nudges you away from your phone<br>
+      when it's time to rest.
+    </p>
+
+    <div class="form-wrapper">
+      <form class="email-form" method="get" action="#">
+        <!-- 
+          TO INTEGRATE EMAIL CAPTURE:
+          Replace action="#" with your Google Form URL or backend endpoint
+          Example Google Form: action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse"
+          Example backend: action="/api/phone-break-submit"
+          
+          For Google Forms, you'll need to:
+          1. Create a Google Form with an email field
+          2. Name the field "emailAddress" or use entry.XXXXXXX format
+          3. Update the input name attribute to match your form field name
+        -->
+        <input 
+          type="email" 
+          name="email" 
+          class="email-input" 
+          placeholder="your@email.com" 
+          required
+          aria-label="Email address"
+        >
+        <button type="submit" class="cta-button">Join the quiet beta</button>
+      </form>
+    </div>
+
+    <p class="footer">No spam. No noise.</p>
+  </div>
+
+  <script src="../shared/analytics.js"></script>
+</body>
+</html>
+

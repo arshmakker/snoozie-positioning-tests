@@ -1,0 +1,172 @@
+/* Snoozie Positioning Tests - Base Styles */
+
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #1a1a2e;
+  color: #f5f5f0;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container for centered content */
+.container {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #f5f5f0;
+  letter-spacing: -0.02em;
+}
+
+.subtext {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  color: #e8e8e3;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Form styles */
+.form-wrapper {
+  margin-bottom: 2.5rem;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.email-input {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: rgba(245, 245, 240, 0.05);
+  border: 1px solid rgba(245, 245, 240, 0.2);
+  border-radius: 4px;
+  color: #f5f5f0;
+  transition: border-color 0.2s ease;
+}
+
+.email-input::placeholder {
+  color: rgba(245, 245, 240, 0.4);
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: rgba(245, 245, 240, 0.4);
+  background-color: rgba(245, 245, 240, 0.08);
+}
+
+.email-input:hover {
+  border-color: rgba(245, 245, 240, 0.3);
+}
+
+.cta-button {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  background-color: rgba(245, 245, 240, 0.1);
+  border: 1px solid rgba(245, 245, 240, 0.3);
+  border-radius: 4px;
+  color: #f5f5f0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: rgba(245, 245, 240, 0.15);
+  border-color: rgba(245, 245, 240, 0.4);
+}
+
+.cta-button:active {
+  background-color: rgba(245, 245, 240, 0.2);
+}
+
+/* Footer */
+.footer {
+  font-size: 0.875rem;
+  color: rgba(245, 245, 240, 0.5);
+  margin-top: auto;
+}
+
+/* Desktop adjustments */
+@media (min-width: 768px) {
+  body {
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .subtext {
+    font-size: 1.125rem;
+    margin-bottom: 4rem;
+  }
+
+  .email-form {
+    flex-direction: row;
+    max-width: 500px;
+  }
+
+  .email-input {
+    flex: 1;
+  }
+
+  .cta-button {
+    width: auto;
+    min-width: 160px;
+  }
+}
+
+/* Ensure single screen on mobile - no scrolling */
+@media (max-width: 767px) {
+  body {
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subtext {
+    font-size: 0.9375rem;
+    margin-bottom: 2rem;
+  }
+}
+
