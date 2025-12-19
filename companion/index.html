@@ -18,14 +18,13 @@
 
     <div class="form-wrapper">
       <form
+        action="https://formspree.io/f/xnjanpba"
+        method="POST"
         class="email-form"
-        method="GET"
-        action="https://docs.google.com/forms/d/e/1FAIpQLSey_wla8vdOXxOuHaHN9z5wLwr_l3uViYQaqaZDjcVbMXQ4vg/viewform"
-        target="_blank"
       >
         <input
           type="email"
-          name="entry.1301590428"
+          name="email"
           class="email-input"
           placeholder="your@email.com"
           required
@@ -35,12 +34,39 @@
           Join the quiet beta
         </button>
       </form>
+
+      <p class="thank-you-message" hidden>
+        Thank you. We'll be in touch.
+      </p>
     </div>
 
     <p class="footer">No spam. No noise.</p>
   </div>
 
   <script src="../shared/analytics.js"></script>
+  <script>
+    (function () {
+      const form = document.querySelector('.email-form');
+      const thankYou = document.querySelector('.thank-you-message');
+
+      if (!form) return;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.hidden = true;
+          thankYou.hidden = false;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
 

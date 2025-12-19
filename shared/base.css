@@ -123,6 +123,15 @@ h1 {
   margin-top: auto;
 }
 
+/* Thank you message */
+.thank-you-message {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #e8e8e3;
+  text-align: center;
+}
+
 /* Desktop adjustments */
 @media (min-width: 768px) {
   body {
