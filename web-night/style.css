@@ -1,65 +1,35 @@
-/* Minimal styles for web-night experience */
-
-.night-text {
-  font-size: 1.5rem;
-  font-weight: 300;
-  line-height: 1.8;
-  margin-bottom: 2rem;
-  color: #e8e8e3;
-}
-
-.bridge-text {
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  color: rgba(232, 232, 227, 0.7);
-}
+/* Web-night page specific styles */
+/* Most styling is handled by shared/base.css */
 
 .audio-button {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
   font-family: inherit;
   background-color: transparent;
   border: 1px solid rgba(245, 245, 240, 0.2);
   border-radius: 4px;
   color: rgba(245, 245, 240, 0.8);
   cursor: pointer;
+  margin-top: 1rem;
+  min-width: 200px;
 }
 
 .tap-hint {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 1.6;
-  margin-top: 0.75rem;
+  margin-top: 1rem;
   color: rgba(232, 232, 227, 0.6);
 }
 
-.email-cta {
-  margin-top: 3rem;
-}
-
-.cta-text {
-  font-size: 1.125rem;
-  font-weight: 300;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  color: #e8e8e3;
-}
-
-.supporting-text {
-  font-size: 0.875rem;
-  color: rgba(245, 245, 240, 0.5);
-  margin-top: 1rem;
-}
-
 @media (max-width: 767px) {
-  .night-text {
-    font-size: 1.25rem;
+  .audio-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem;
+    min-width: 180px;
   }
   
-  .cta-text {
-    font-size: 1rem;
+  .tap-hint {
+    font-size: 0.9375rem;
   }
 }
-

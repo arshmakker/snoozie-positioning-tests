@@ -15,26 +15,25 @@
 </head>
 <body>
   <div class="container">
-    <div class="main-content">
-      <p class="night-text">
-        You're not alone here.<br><br>
-        Stay for a bit.<br>
-        There's nothing you need to do.
-      </p>
-      
-      <audio id="night-audio" src="../assets/audio/snoozie-night-1.mp3" autoplay></audio>
-      <p class="bridge-text">When you're ready, you can listen.</p>
-      <button id="audio-control" class="audio-button">Pause</button>
-      <p class="tap-hint" hidden>Tap play when you're ready.</p>
-    </div>
+    <h1>
+      You're not alone here.<br><br>
+      Stay for a bit.<br>
+      There's nothing you need to do.
+    </h1>
+    
+    <p class="subtext">When you're ready, you can listen.</p>
 
-    <div class="email-cta" hidden>
-      <p class="cta-text">If this helped, would you like something like this tomorrow night too?</p>
+    <audio id="night-audio" src="../assets/audio/snoozie-night-1.mp3" autoplay></audio>
+    <button id="audio-control" class="audio-button">Pause</button>
+    <p class="tap-hint" hidden>Tap play when you're ready.</p>
+
+    <div class="form-wrapper" hidden>
+      <p class="subtext">If this helped, would you like something like this tomorrow night too?</p>
       <form action="https://formspree.io/f/xnjanpba" method="POST" class="email-form">
         <input type="email" name="email" class="email-input" placeholder="your@email.com" required>
         <button type="submit" class="cta-button">Send me something gentle</button>
       </form>
-      <p class="supporting-text">One email. No spam. Unsubscribe anytime.</p>
+      <p class="footer">One email. No spam. Unsubscribe anytime.</p>
       <p class="thank-you-message" hidden>Thank you. I'll be here again.</p>
     </div>
   </div>
@@ -43,7 +42,7 @@
     (function() {
       const audio = document.getElementById('night-audio');
       const control = document.getElementById('audio-control');
-      const cta = document.querySelector('.email-cta');
+      const cta = document.querySelector('.form-wrapper');
       const form = document.querySelector('.email-form');
       const thankYou = document.querySelector('.thank-you-message');
       let ctaShown = false;
@@ -80,7 +79,7 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const res = await fetch(form.action, { method: form.method, body: new FormData(form), headers: { 'Accept': 'application/json' } });
-        if (res.ok) { form.hidden = true; document.querySelector('.supporting-text').hidden = true; thankYou.hidden = false; }
+        if (res.ok) { form.hidden = true; thankYou.hidden = false; }
       });
     })();
   </script>
