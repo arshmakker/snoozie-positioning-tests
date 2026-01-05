@@ -23,7 +23,10 @@
     
     <p class="subtext">When you're ready, you can listen.</p>
 
-    <audio id="night-audio" src="../assets/audio/snoozie-night-1.mp3" autoplay></audio>
+    <audio id="night-audio" autoplay>
+      <source src="../assets/audio/snoozie-night-1.m4a" type="audio/mp4">
+      <source src="../assets/audio/snoozie-night-1.mp3" type="audio/mpeg">
+    </audio>
     <button id="audio-control" class="audio-button">Pause</button>
     <p class="tap-hint" hidden>Tap play when you're ready.</p>
 
