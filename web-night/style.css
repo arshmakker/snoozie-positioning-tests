@@ -1,7 +1,11 @@
 /* Web-night page specific styles */
 /* Most styling is handled by shared/base.css */
 
-.audio-button {
+body {
+  background-color: #000000;
+}
+
+.start-button {
   padding: 0.875rem 2rem;
   font-size: 1rem;
   font-family: inherit;
@@ -10,26 +14,25 @@
   border-radius: 4px;
   color: rgba(245, 245, 240, 0.8);
   cursor: pointer;
-  margin-top: 1rem;
   min-width: 200px;
 }
 
-.tap-hint {
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.6;
-  margin-top: 1rem;
-  color: rgba(232, 232, 227, 0.6);
+#experience-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  opacity: 0;
+  z-index: 1;
 }
 
 @media (max-width: 767px) {
-  .audio-button {
+  .start-button {
     padding: 0.75rem 1.5rem;
     font-size: 0.9375rem;
     min-width: 180px;
-  }
-  
-  .tap-hint {
-    font-size: 0.9375rem;
   }
 }

@@ -15,77 +15,17 @@
 </head>
 <body>
   <div class="container">
-    <h1>
-      You're not alone here.<br><br>
-      Stay for a bit.<br>
-      There's nothing you need to do.
-    </h1>
-    
-    <p class="subtext">When you're ready, you can listen.</p>
-
-    <audio id="night-audio" autoplay>
+    <audio id="night-audio">
       <source src="../assets/audio/snoozie-night-1.m4a" type="audio/mp4">
       <source src="../assets/audio/snoozie-night-1.mp3" type="audio/mpeg">
     </audio>
-    <button id="audio-control" class="audio-button">Pause</button>
-    <p class="tap-hint" hidden>Tap play when you're ready.</p>
-
-    <div class="form-wrapper" hidden>
-      <p class="subtext">If this helped, would you like something like this tomorrow night too?</p>
-      <form action="https://formspree.io/f/xnjanpba" method="POST" class="email-form">
-        <input type="email" name="email" class="email-input" placeholder="your@email.com" required>
-        <button type="submit" class="cta-button">Send me something gentle</button>
-      </form>
-      <p class="footer">One email. No spam. Unsubscribe anytime.</p>
-      <p class="thank-you-message" hidden>Thank you. I'll be here again.</p>
-    </div>
+    
+    <img id="experience-image" src="../assets/nindra_nandan_center.jpeg" alt="" hidden>
+    
+    <button id="start-button" class="start-button">Sit quietly with me for one minute</button>
   </div>
 
-  <script>
-    (function() {
-      const audio = document.getElementById('night-audio');
-      const control = document.getElementById('audio-control');
-      const cta = document.querySelector('.form-wrapper');
-      const form = document.querySelector('.email-form');
-      const thankYou = document.querySelector('.thank-you-message');
-      let ctaShown = false;
-
-      audio.play().catch(() => {
-        control.textContent = 'Begin listening';
-        document.body.classList.add('needs-interaction');
-        document.querySelector('.tap-hint').hidden = false;
-      });
-      audio.addEventListener('play', () => {
-        control.textContent = 'Pause';
-        document.querySelector('.tap-hint').hidden = true;
-      });
-      audio.addEventListener('pause', () => { control.textContent = 'Begin listening'; });
-
-      control.addEventListener('click', () => {
-        if (audio.paused) { audio.play(); } else { audio.pause(); }
-      });
-
-      const showCTA = () => {
-        if (ctaShown) return;
-        ctaShown = true;
-        if (window.plausible) {
-          plausible('NightExperienced', { props: { page: '/web-night' } });
-        }
-        cta.hidden = false;
-      };
-
-      audio.addEventListener('ended', showCTA);
-      setTimeout(() => {
-        if (audio.currentTime >= 90) showCTA();
-      }, 180000);
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const res = await fetch(form.action, { method: form.method, body: new FormData(form), headers: { 'Accept': 'application/json' } });
-        if (res.ok) { form.hidden = true; thankYou.hidden = false; }
-      });
-    })();
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
 
