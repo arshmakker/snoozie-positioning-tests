@@ -13,22 +13,19 @@
     const minutes = now.getMinutes();
     const currentTime = hours * 60 + minutes;
     
-    // Night window: 9:30 PM to 11:59 PM OR 12:00 AM to 1:30 AM
-    const nightWindow1Start = 21 * 60 + 30; // 9:30 PM
-    const nightWindow1End = 23 * 60 + 59; // 11:59 PM
-    const nightWindow2Start = 0; // 12:00 AM
-    const nightWindow2End = 1 * 60 + 30; // 1:30 AM
+    // Night window: 9:30 PM to 1:30 AM
+    const nightStart = 21 * 60 + 30; // 9:30 PM
+    const nightEnd = 1 * 60 + 30; // 1:30 AM
     
-    const inWindow1 = currentTime >= nightWindow1Start && currentTime <= nightWindow1End;
-    const inWindow2 = currentTime >= nightWindow2Start && currentTime <= nightWindow2End;
-    const isNightTime = inWindow1 || inWindow2;
+    const isNightTime = (currentTime >= nightStart && currentTime <= 23 * 60 + 59) || 
+                        (currentTime >= 0 && currentTime <= nightEnd);
 
     if (!isNightTime) {
       // Show holding state
       document.body.innerHTML = `
         <div class="container">
-          <h1>I come alive at night.</h1>
-          <p class="subtext">Come back after 9:30 PM.</p>
+          <h1>I'm not here right now.</h1>
+          <p class="subtext">I only come at night.<br><br>If you're awake between 9:30 PM and 1:30 AM,<br>come back then.</p>
         </div>
       `;
       if (window.plausible) {
